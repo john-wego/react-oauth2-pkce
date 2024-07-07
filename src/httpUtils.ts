@@ -12,6 +12,7 @@ function buildUrlEncodedRequest(request: TTokenRequest): string {
 export async function postWithXForm(url: string, request: TTokenRequest): Promise<Response> {
   return fetch(url, {
     method: 'POST',
+    credentials: 'include',
     body: buildUrlEncodedRequest(request),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).then(async (response: Response) => {
